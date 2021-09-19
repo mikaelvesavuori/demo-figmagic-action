@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  figmagic:
+    runs-on: ubuntu-latest
+    name: Use Figmagic
+    steps:
+      - uses: actions/checkout@v2
+      - id: figmagic
+        uses: mikaelvesavuori/figmagic-action@latest
+        with:
+          figma-url: ${{ secrets.FIGMA_URL }}
+          figma-token: ${{ secrets.FIGMA_TOKEN }}
+      - run: ls -A
